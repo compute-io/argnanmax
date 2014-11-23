@@ -25,7 +25,15 @@
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "mathematics",
+    "math",
+    "statistics",
+    "stats",
+    "array",
+    "max",
+    "maximum",
+    "nan"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/argnanmax/issues"

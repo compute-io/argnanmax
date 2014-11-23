@@ -19,18 +19,40 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 To use the module,
 
 ``` javascript
-var foo = require( 'compute-argnanmax' );
+var argmax = require( 'compute-argnanmax' );
 ```
 
-#### foo( arr )
+#### argmax( arr )
 
-What does this function do?
+Computes the maximum value of an `array` ignoring non-numeric values and returns the corresponding `array` indices.
+
+``` javascript
+var data = [ null, -5, NaN, true, -3, -2, 'beep' ];
+
+var idx = argmax( data );
+// returns [5]
+```
+
+Note: if an input `array` does not contain any numeric values, the function returns an empty `array`.
 
 
 ## Examples
 
 ``` javascript
-var foo = require( 'compute-argnanmax' );
+var argmax = require( 'compute-argnanmax' );
+
+// Simulate some data...
+var data = new Array( 100 );
+for ( var i = 0; i < data.length; i++ ) {
+	// Every so often insert a missing value...
+	if ( i%10 === 0 ) {
+		data[ i ] = null;
+	} else {
+		data[ i ] = -1 * Math.round( Math.random()*100 );
+	}
+}
+var idx = argmax( data );
+console.log( idx );
 ```
 
 To run the example code from the top-level application directory,
