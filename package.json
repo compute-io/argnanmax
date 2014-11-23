@@ -1,6 +1,6 @@
 {
   "name": "compute-argnanmax",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Computes the maximum value of an array ignoring non-numeric values and returns the corresponding array indices.",
   "author": {
     "name": "Athan Reines",
