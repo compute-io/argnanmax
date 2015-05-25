@@ -22,7 +22,7 @@ To use the module,
 var argmax = require( 'compute-argnanmax' );
 ```
 
-#### argmax( arr )
+#### argmax( arr[, accessor] )
 
 Computes the maximum value of an `array` ignoring non-numeric values and returns the corresponding `array` indices.
 
@@ -33,7 +33,27 @@ var idx = argmax( data );
 // returns [5]
 ```
 
-Note: if an input `array` does not contain any numeric values, the function returns an empty `array`.
+For non-numeric `arrays`, provide an accessor `function` for accessing numeric values
+
+``` javascript
+var arr = [
+	{'x':-5},
+	{'x':null},
+	{'x':-2},
+	{'x':-3},
+	{'x':null},
+	{'x':-7}
+];
+
+function getValue( d, i ) {
+	return d.x;
+}
+
+var idx = argmax( arr, getValue );
+// returns [2]
+```
+
+Note: if an input `array` does not contain any numeric values, the function returns `null`.
 
 
 ## Examples
@@ -92,13 +112,13 @@ $ make view-cov
 
 ## License
 
-[MIT license](http://opensource.org/licenses/MIT). 
+[MIT license](http://opensource.org/licenses/MIT).
 
 
 ---
 ## Copyright
 
-Copyright &copy; 2014. Athan Reines.
+Copyright &copy; 2014-2015. The Compute.io Authors.
 
 
 [npm-image]: http://img.shields.io/npm/v/compute-argnanmax.svg
